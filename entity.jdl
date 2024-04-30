@@ -1,0 +1,107 @@
+
+entity Anime {
+	title String,
+    discription TextBlob,
+    cover String,
+    relaseDate LocalDate
+}
+
+entity Season {
+titleInJapan String,
+titleInEnglis String,
+relaseDate LocalDate,
+addDate LocalDate,
+startDate LocalDate,
+endDate LocalDate,
+avrgeEpisodeLength String,
+type Type,
+seasonType SeasonType,
+cover String
+}
+entity Source {
+name String
+}
+enum Type{
+MOVIE,
+EPISODE
+}
+enum SeasonType {
+OVA,
+ONA,
+TV,
+SERIES
+}
+
+entity Episode {
+	title String,
+    episodeLink TextBlob,
+    relaseDate LocalDate
+    }
+    entity Link{
+linkType LinkType
+}
+enum LinkType {
+HD_1080,
+SD_720,
+SD_480
+}
+entity Studio {
+name String
+}
+
+entity Tag {
+name String
+}
+
+entity YearlySeason {
+name LocalDate
+
+}
+
+entity Character{
+name String,
+picture String
+} 
+
+entity Comment {
+comment TextBlob,
+like Integer,
+disLike Integer
+}
+
+entity Favirote {
+addDate LocalDate
+}
+entity Profile {
+pictue String
+}
+entity History {
+date LocalDate
+}
+relationship OneToOne {
+Profile{user} to User with builtInEntity
+Profile to Favirote
+Profile to Comment
+Profile to History
+Anime to Source
+
+}
+
+relationship  ManyToOne {
+Comment to Episode
+Comment to Anime
+Comment to Season
+Episode to History
+}
+
+relationship OneToMany {
+Anime to Character
+Studio to Anime
+Anime to Season
+Season to Episode
+Anime to Tag
+YearlySeason to Season
+Favirote to Anime
+Episode to Link{linkType}
+}
+
