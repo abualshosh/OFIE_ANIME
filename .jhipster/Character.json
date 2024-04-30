@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20240430225054",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "character",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "picture",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Character",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "anime",
+      "otherEntityRelationshipName": "character",
+      "relationshipName": "anime",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

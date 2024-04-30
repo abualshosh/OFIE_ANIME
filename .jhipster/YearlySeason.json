@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20240430225053",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "yearly_season",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "YearlySeason",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "season",
+      "otherEntityRelationshipName": "yearlySeason",
+      "relationshipName": "season",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

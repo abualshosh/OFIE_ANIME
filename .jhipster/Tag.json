@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20240430225052",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "tag",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Tag",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "anime",
+      "otherEntityRelationshipName": "tag",
+      "relationshipName": "anime",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

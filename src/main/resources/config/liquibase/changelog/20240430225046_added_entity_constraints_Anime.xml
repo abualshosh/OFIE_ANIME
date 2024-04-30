@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Anime.
+    -->
+    <changeSet id="20240430225046-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="source_id"
+                                 baseTableName="anime"
+                                 constraintName="fk_anime__source_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="source"/>
+
+        <addForeignKeyConstraint baseColumnNames="studio_id"
+                                 baseTableName="anime"
+                                 constraintName="fk_anime__studio_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="studio"/>
+
+        <addForeignKeyConstraint baseColumnNames="favirote_id"
+                                 baseTableName="anime"
+                                 constraintName="fk_anime__favirote_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="favirote"/>
+    </changeSet>
+</databaseChangeLog>

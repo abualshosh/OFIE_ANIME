@@ -1,0 +1,50 @@
+{
+  "applications": "*",
+  "changelogDate": "20240430225057",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "profile",
+  "fields": [
+    {
+      "fieldName": "pictue",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Profile",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "id": true,
+      "otherEntityName": "user",
+      "ownerSide": true,
+      "relationshipName": "user",
+      "relationshipType": "one-to-one",
+      "useJPADerivedIdentifier": true
+    },
+    {
+      "otherEntityName": "favirote",
+      "otherEntityRelationshipName": "profile",
+      "ownerSide": true,
+      "relationshipName": "favirote",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "comment",
+      "otherEntityRelationshipName": "profile",
+      "ownerSide": true,
+      "relationshipName": "comment",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "history",
+      "otherEntityRelationshipName": "profile",
+      "ownerSide": true,
+      "relationshipName": "history",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

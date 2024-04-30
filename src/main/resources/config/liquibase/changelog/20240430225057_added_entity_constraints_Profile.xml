@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Profile.
+    -->
+    <changeSet id="20240430225057-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="id"
+                                 baseTableName="profile"
+                                 constraintName="fk_profile__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="favirote_id"
+                                 baseTableName="profile"
+                                 constraintName="fk_profile__favirote_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="favirote"/>
+
+        <addForeignKeyConstraint baseColumnNames="comment_id"
+                                 baseTableName="profile"
+                                 constraintName="fk_profile__comment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="comment"/>
+
+        <addForeignKeyConstraint baseColumnNames="history_id"
+                                 baseTableName="profile"
+                                 constraintName="fk_profile__history_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="history"/>
+    </changeSet>
+</databaseChangeLog>

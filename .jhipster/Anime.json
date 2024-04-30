@@ -1,0 +1,77 @@
+{
+  "applications": "*",
+  "changelogDate": "20240430225046",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "anime",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "discription",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "cover",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "relaseDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Anime",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "source",
+      "otherEntityRelationshipName": "anime",
+      "ownerSide": true,
+      "relationshipName": "source",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "character",
+      "otherEntityRelationshipName": "anime",
+      "relationshipName": "character",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "season",
+      "otherEntityRelationshipName": "anime",
+      "relationshipName": "season",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "tag",
+      "otherEntityRelationshipName": "anime",
+      "relationshipName": "tag",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "studio",
+      "otherEntityRelationshipName": "anime",
+      "relationshipName": "studio",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "favirote",
+      "otherEntityRelationshipName": "anime",
+      "relationshipName": "favirote",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "comment",
+      "otherEntityRelationshipName": "anime",
+      "relationshipName": "comment",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Season.
+    -->
+    <changeSet id="20240430225047-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="anime_id"
+                                 baseTableName="season"
+                                 constraintName="fk_season__anime_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="anime"/>
+
+        <addForeignKeyConstraint baseColumnNames="yearly_season_id"
+                                 baseTableName="season"
+                                 constraintName="fk_season__yearly_season_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="yearly_season"/>
+    </changeSet>
+</databaseChangeLog>

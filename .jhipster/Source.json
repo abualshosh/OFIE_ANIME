@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20240430225048",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "source",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Source",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "anime",
+      "otherEntityRelationshipName": "source",
+      "ownerSide": false,
+      "relationshipName": "anime",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

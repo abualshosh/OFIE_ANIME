@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20240430225055",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "comment",
+  "fields": [
+    {
+      "fieldName": "comment",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "like",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "disLike",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Comment",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "episode",
+      "otherEntityRelationshipName": "comment",
+      "relationshipName": "episode",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "anime",
+      "otherEntityRelationshipName": "comment",
+      "relationshipName": "anime",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "season",
+      "otherEntityRelationshipName": "comment",
+      "relationshipName": "season",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "profile",
+      "otherEntityRelationshipName": "comment",
+      "ownerSide": false,
+      "relationshipName": "profile",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

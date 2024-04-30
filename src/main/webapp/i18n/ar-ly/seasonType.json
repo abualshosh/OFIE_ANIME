@@ -1,0 +1,11 @@
+{
+  "ofieAnimeApp": {
+    "SeasonType": {
+      "null": "",
+      "OVA": "OVA",
+      "ONA": "ONA",
+      "TV": "TV",
+      "SERIES": "SERIES"
+    }
+  }
+}

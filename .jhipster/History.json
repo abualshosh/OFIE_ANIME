@@ -1,0 +1,34 @@
+{
+  "applications": "*",
+  "changelogDate": "20240430225058",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "history",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "History",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "profile",
+      "otherEntityRelationshipName": "history",
+      "ownerSide": false,
+      "relationshipName": "profile",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "episode",
+      "otherEntityRelationshipName": "history",
+      "relationshipName": "episode",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

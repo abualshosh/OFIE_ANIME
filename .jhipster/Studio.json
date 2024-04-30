@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20240430225051",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "studio",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Studio",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "anime",
+      "otherEntityRelationshipName": "studio",
+      "relationshipName": "anime",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

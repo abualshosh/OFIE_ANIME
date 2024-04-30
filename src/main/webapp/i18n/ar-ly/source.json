@@ -1,0 +1,26 @@
+{
+  "ofieAnimeApp": {
+    "source": {
+      "home": {
+        "title": "Sources",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Source",
+        "createOrEditLabel": "Create or edit a Source",
+        "search": "Search for Source",
+        "notFound": "No Sources found"
+      },
+      "created": "A new Source is created with identifier {{ param }}",
+      "updated": "A Source is updated with identifier {{ param }}",
+      "deleted": "A Source is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Source {{ id }}?"
+      },
+      "detail": {
+        "title": "Source"
+      },
+      "id": "ID",
+      "name": "Name",
+      "anime": "Anime"
+    }
+  }
+}

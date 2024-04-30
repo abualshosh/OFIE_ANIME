@@ -1,0 +1,35 @@
+{
+  "ofieAnimeApp": {
+    "anime": {
+      "home": {
+        "title": "Anime",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Anime",
+        "createOrEditLabel": "Create or edit a Anime",
+        "search": "Search for Anime",
+        "notFound": "No Anime found"
+      },
+      "created": "A new Anime is created with identifier {{ param }}",
+      "updated": "A Anime is updated with identifier {{ param }}",
+      "deleted": "A Anime is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Anime {{ id }}?"
+      },
+      "detail": {
+        "title": "Anime"
+      },
+      "id": "ID",
+      "title": "Title",
+      "discription": "Discription",
+      "cover": "Cover",
+      "relaseDate": "Relase Date",
+      "source": "Source",
+      "character": "Character",
+      "season": "Season",
+      "tag": "Tag",
+      "studio": "Studio",
+      "favirote": "Favirote",
+      "comment": "Comment"
+    }
+  }
+}

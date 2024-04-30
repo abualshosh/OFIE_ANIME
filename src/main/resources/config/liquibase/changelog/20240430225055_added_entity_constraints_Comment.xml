@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Comment.
+    -->
+    <changeSet id="20240430225055-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="episode_id"
+                                 baseTableName="comment"
+                                 constraintName="fk_comment__episode_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="episode"/>
+
+        <addForeignKeyConstraint baseColumnNames="anime_id"
+                                 baseTableName="comment"
+                                 constraintName="fk_comment__anime_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="anime"/>
+
+        <addForeignKeyConstraint baseColumnNames="season_id"
+                                 baseTableName="comment"
+                                 constraintName="fk_comment__season_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="season"/>
+    </changeSet>
+</databaseChangeLog>

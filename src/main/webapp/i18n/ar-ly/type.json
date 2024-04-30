@@ -1,0 +1,9 @@
+{
+  "ofieAnimeApp": {
+    "Type": {
+      "null": "",
+      "MOVIE": "MOVIE",
+      "EPISODE": "EPISODE"
+    }
+  }
+}

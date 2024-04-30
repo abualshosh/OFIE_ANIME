@@ -1,0 +1,83 @@
+{
+  "applications": "*",
+  "changelogDate": "20240430225047",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "season",
+  "fields": [
+    {
+      "fieldName": "titleInJapan",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "titleInEnglis",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "relaseDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "addDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "avrgeEpisodeLength",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "Type",
+      "fieldValues": "MOVIE,EPISODE"
+    },
+    {
+      "fieldName": "seasonType",
+      "fieldType": "SeasonType",
+      "fieldValues": "OVA,ONA,TV,SERIES"
+    },
+    {
+      "fieldName": "cover",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Season",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "episode",
+      "otherEntityRelationshipName": "season",
+      "relationshipName": "episode",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "anime",
+      "otherEntityRelationshipName": "season",
+      "relationshipName": "anime",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "yearlySeason",
+      "otherEntityRelationshipName": "season",
+      "relationshipName": "yearlySeason",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "comment",
+      "otherEntityRelationshipName": "season",
+      "relationshipName": "comment",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

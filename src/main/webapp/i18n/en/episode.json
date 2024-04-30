@@ -1,0 +1,31 @@
+{
+  "ofieAnimeApp": {
+    "episode": {
+      "home": {
+        "title": "Episodes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Episode",
+        "createOrEditLabel": "Create or edit a Episode",
+        "search": "Search for Episode",
+        "notFound": "No Episodes found"
+      },
+      "created": "A new Episode is created with identifier {{ param }}",
+      "updated": "A Episode is updated with identifier {{ param }}",
+      "deleted": "A Episode is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Episode {{ id }}?"
+      },
+      "detail": {
+        "title": "Episode"
+      },
+      "id": "ID",
+      "title": "Title",
+      "episodeLink": "Episode Link",
+      "relaseDate": "Relase Date",
+      "urlLink": "Url Link",
+      "history": "History",
+      "season": "Season",
+      "comment": "Comment"
+    }
+  }
+}

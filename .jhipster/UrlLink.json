@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20240430225050",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "url_link",
+  "fields": [
+    {
+      "fieldName": "linkType",
+      "fieldType": "UrlLinkType",
+      "fieldValues": "HD_1080,SD_720,SD_480"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "UrlLink",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "episode",
+      "otherEntityRelationshipName": "urlLink",
+      "relationshipName": "episode",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

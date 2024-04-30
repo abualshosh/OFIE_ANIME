@@ -37,10 +37,10 @@ entity Episode {
     episodeLink TextBlob,
     relaseDate LocalDate
     }
-    entity Link{
-linkType LinkType
+    entity UrlLink{
+linkType UrlLinkType
 }
-enum LinkType {
+enum UrlLinkType {
 HD_1080,
 SD_720,
 SD_480
@@ -79,7 +79,7 @@ entity History {
 date LocalDate
 }
 relationship OneToOne {
-Profile{user} to User with builtInEntity
+Profile{user} to User with jpaDerivedIdentifier
 Profile to Favirote
 Profile to Comment
 Profile to History
@@ -102,6 +102,6 @@ Season to Episode
 Anime to Tag
 YearlySeason to Season
 Favirote to Anime
-Episode to Link{linkType}
+Episode to UrlLink
 }
 

@@ -7,6 +7,19 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "anime": "Anime",
+        "season": "Season",
+        "source": "Source",
+        "episode": "Episode",
+        "urlLink": "Url Link",
+        "studio": "Studio",
+        "tag": "Tag",
+        "yearlySeason": "Yearly Season",
+        "character": "Character",
+        "comment": "Comment",
+        "favirote": "Favirote",
+        "profile": "Profile",
+        "history": "History",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

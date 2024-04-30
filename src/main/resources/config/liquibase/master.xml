@@ -11,7 +11,28 @@
     <property name="datetimeType" value="datetime" dbms="postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225046_added_entity_Anime.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225047_added_entity_Season.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225048_added_entity_Source.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225049_added_entity_Episode.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225050_added_entity_UrlLink.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225051_added_entity_Studio.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225052_added_entity_Tag.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225053_added_entity_YearlySeason.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225054_added_entity_Character.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225055_added_entity_Comment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225056_added_entity_Favirote.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225057_added_entity_Profile.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225058_added_entity_History.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20240430225046_added_entity_constraints_Anime.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225047_added_entity_constraints_Season.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225049_added_entity_constraints_Episode.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225050_added_entity_constraints_UrlLink.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225052_added_entity_constraints_Tag.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225054_added_entity_constraints_Character.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225055_added_entity_constraints_Comment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240430225057_added_entity_constraints_Profile.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

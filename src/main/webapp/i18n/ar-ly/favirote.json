@@ -1,0 +1,27 @@
+{
+  "ofieAnimeApp": {
+    "favirote": {
+      "home": {
+        "title": "Favirotes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Favirote",
+        "createOrEditLabel": "Create or edit a Favirote",
+        "search": "Search for Favirote",
+        "notFound": "No Favirotes found"
+      },
+      "created": "A new Favirote is created with identifier {{ param }}",
+      "updated": "A Favirote is updated with identifier {{ param }}",
+      "deleted": "A Favirote is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Favirote {{ id }}?"
+      },
+      "detail": {
+        "title": "Favirote"
+      },
+      "id": "ID",
+      "addDate": "Add Date",
+      "anime": "Anime",
+      "profile": "Profile"
+    }
+  }
+}

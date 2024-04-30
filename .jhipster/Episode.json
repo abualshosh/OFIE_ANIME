@@ -1,0 +1,54 @@
+{
+  "applications": "*",
+  "changelogDate": "20240430225049",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "episode",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "episodeLink",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "relaseDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Episode",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "urlLink",
+      "otherEntityRelationshipName": "episode",
+      "relationshipName": "urlLink",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "history",
+      "otherEntityRelationshipName": "episode",
+      "relationshipName": "history",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "season",
+      "otherEntityRelationshipName": "episode",
+      "relationshipName": "season",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "comment",
+      "otherEntityRelationshipName": "episode",
+      "relationshipName": "comment",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

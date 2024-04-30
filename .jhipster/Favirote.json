@@ -1,0 +1,34 @@
+{
+  "applications": "*",
+  "changelogDate": "20240430225056",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "favirote",
+  "fields": [
+    {
+      "fieldName": "addDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Favirote",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "anime",
+      "otherEntityRelationshipName": "favirote",
+      "relationshipName": "anime",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "profile",
+      "otherEntityRelationshipName": "favirote",
+      "ownerSide": false,
+      "relationshipName": "profile",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}
