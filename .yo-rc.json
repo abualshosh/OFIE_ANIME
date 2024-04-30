@@ -1,0 +1,58 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "authenticationType": "session",
+    "baseName": "OFIE_ANIME",
+    "blueprints": [
+      {
+        "name": "generator-jhipster-kotlin",
+        "version": "1.16.0"
+      }
+    ],
+    "buildTool": "maven",
+    "cacheProvider": "ehcache",
+    "clientFramework": "react",
+    "clientPackageManager": "npm",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1714415350411,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "devServerPort": 9060,
+    "dtoSuffix": "DTO",
+    "enableGradleEnterprise": false,
+    "enableHibernateCache": true,
+    "enableSwaggerCodegen": false,
+    "enableTranslation": true,
+    "entitySuffix": "",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "7.9.3",
+    "languages": ["en", "ar-ly"],
+    "messageBroker": false,
+    "microfrontend": false,
+    "microfrontends": [],
+    "nativeLanguage": "en",
+    "otherModules": [
+      {
+        "name": "generator-jhipster-kotlin",
+        "version": "1.16.0"
+      }
+    ],
+    "packageName": "com.ashraf.ofieanime",
+    "pages": [],
+    "prodDatabaseType": "postgresql",
+    "reactive": false,
+    "rememberMeKey": "363af544c8aff4620aa16f9541c2dd0fcc1b300dba45139f85995d59b4cf53c4dd7a13fbcd9ba3ac0b95223d8f01cf21d0cc",
+    "searchEngine": "elasticsearch",
+    "serverPort": "8080",
+    "serverSideOptions": ["searchEngine:elasticsearch"],
+    "serviceDiscoveryType": "no",
+    "skipCheckLengthOfIdentifier": false,
+    "skipClient": false,
+    "skipFakeData": false,
+    "skipUserManagement": false,
+    "testFrameworks": [],
+    "websocket": false,
+    "withAdminUi": true
+  }
+}
