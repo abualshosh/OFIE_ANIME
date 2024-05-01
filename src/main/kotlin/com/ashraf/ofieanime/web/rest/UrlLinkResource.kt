@@ -4,21 +4,17 @@ import com.ashraf.ofieanime.domain.UrlLink
 import com.ashraf.ofieanime.repository.UrlLinkRepository
 import com.ashraf.ofieanime.repository.search.UrlLinkSearchRepository
 import com.ashraf.ofieanime.web.rest.errors.BadRequestAlertException
-
-import tech.jhipster.web.util.HeaderUtil
-import tech.jhipster.web.util.ResponseUtil
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.ResponseEntity
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.*
-
+import tech.jhipster.web.util.HeaderUtil
+import tech.jhipster.web.util.ResponseUtil
 import java.net.URI
 import java.net.URISyntaxException
 import java.util.Objects
 import java.util.stream.Collectors
-import java.util.stream.StreamSupport
-import org.elasticsearch.index.query.QueryBuilders.queryStringQuery
 
 private const val ENTITY_NAME = "urlLink"
 /**
@@ -28,8 +24,8 @@ private const val ENTITY_NAME = "urlLink"
 @RequestMapping("/api")
 @Transactional
 class UrlLinkResource(
-        private val urlLinkRepository: UrlLinkRepository,
-        private val urlLinkSearchRepository: UrlLinkSearchRepository,
+    private val urlLinkRepository: UrlLinkRepository,
+    private val urlLinkSearchRepository: UrlLinkSearchRepository,
 ) {
 
     private val log = LoggerFactory.getLogger(javaClass)
@@ -59,7 +55,7 @@ class UrlLinkResource(
         }
         val result = urlLinkRepository.save(urlLink)
         urlLinkSearchRepository.index(result)
-            return ResponseEntity.created(URI("/api/url-links/${result.id}"))
+        return ResponseEntity.created(URI("/api/url-links/${result.id}"))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.id.toString()))
             .body(result)
     }
@@ -88,7 +84,6 @@ class UrlLinkResource(
             throw BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid")
         }
 
-
         if (!urlLinkRepository.existsById(id)) {
             throw BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound")
         }
@@ -99,28 +94,28 @@ class UrlLinkResource(
             .headers(
                 HeaderUtil.createEntityUpdateAlert(
                     applicationName, true, ENTITY_NAME,
-                     urlLink.id.toString()
+                    urlLink.id.toString()
                 )
             )
             .body(result)
     }
 
     /**
-    * {@code PATCH  /url-links/:id} : Partial updates given fields of an existing urlLink, field will ignore if it is null
-    *
-    * @param id the id of the urlLink to save.
-    * @param urlLink the urlLink to update.
-    * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated urlLink,
-    * or with status {@code 400 (Bad Request)} if the urlLink is not valid,
-    * or with status {@code 404 (Not Found)} if the urlLink is not found,
-    * or with status {@code 500 (Internal Server Error)} if the urlLink couldn't be updated.
-    * @throws URISyntaxException if the Location URI syntax is incorrect.
-    */
+     * {@code PATCH  /url-links/:id} : Partial updates given fields of an existing urlLink, field will ignore if it is null
+     *
+     * @param id the id of the urlLink to save.
+     * @param urlLink the urlLink to update.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated urlLink,
+     * or with status {@code 400 (Bad Request)} if the urlLink is not valid,
+     * or with status {@code 404 (Not Found)} if the urlLink is not found,
+     * or with status {@code 500 (Internal Server Error)} if the urlLink couldn't be updated.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
     @PatchMapping(value = ["/url-links/{id}"], consumes = ["application/json", "application/merge-patch+json"])
     @Throws(URISyntaxException::class)
     fun partialUpdateUrlLink(
         @PathVariable(value = "id", required = false) id: Long,
-        @RequestBody urlLink:UrlLink
+        @RequestBody urlLink: UrlLink
     ): ResponseEntity<UrlLink> {
         log.debug("REST request to partial update UrlLink partially : {}, {}", id, urlLink)
         if (urlLink.id == null) {
@@ -134,25 +129,21 @@ class UrlLinkResource(
             throw BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound")
         }
 
-
-
-         val result = urlLinkRepository.findById(urlLink.id)
+        val result = urlLinkRepository.findById(urlLink.id)
             .map {
 
-                  if (urlLink.linkType!= null) {
-                     it.linkType = urlLink.linkType
-                  }
+                if (urlLink.linkType != null) {
+                    it.linkType = urlLink.linkType
+                }
 
-               it
+                it
             }
             .map { urlLinkRepository.save(it) }
             .map {
-                  urlLinkSearchRepository.save(it)
+                urlLinkSearchRepository.save(it)
 
-                  it
-
+                it
             }
-
 
         return ResponseUtil.wrapOrNotFound(
             result,
@@ -166,13 +157,10 @@ class UrlLinkResource(
 
      * @return the [ResponseEntity] with status `200 (OK)` and the list of urlLinks in body.
      */
-    @GetMapping("/url-links")    
-    fun getAllUrlLinks(): MutableList<UrlLink> {
-        
-        
+    @GetMapping("/url-links") fun getAllUrlLinks(): MutableList<UrlLink> {
 
-            log.debug("REST request to get all UrlLinks")
-                        return urlLinkRepository.findAll()
+        log.debug("REST request to get all UrlLinks")
+        return urlLinkRepository.findAll()
     }
 
     /**
@@ -213,8 +201,8 @@ class UrlLinkResource(
     @GetMapping("/_search/url-links")
     fun searchUrlLinks(@RequestParam query: String): MutableList<UrlLink> {
         log.debug("REST request to search UrlLinks for query $query")
-            return urlLinkSearchRepository.search(query)
+        return urlLinkSearchRepository.search(query)
             .collect(Collectors.toList())
             .toMutableList()
-}
+    }
 }

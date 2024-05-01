@@ -4,21 +4,17 @@ import com.ashraf.ofieanime.domain.Studio
 import com.ashraf.ofieanime.repository.StudioRepository
 import com.ashraf.ofieanime.repository.search.StudioSearchRepository
 import com.ashraf.ofieanime.web.rest.errors.BadRequestAlertException
-
-import tech.jhipster.web.util.HeaderUtil
-import tech.jhipster.web.util.ResponseUtil
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.ResponseEntity
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.*
-
+import tech.jhipster.web.util.HeaderUtil
+import tech.jhipster.web.util.ResponseUtil
 import java.net.URI
 import java.net.URISyntaxException
 import java.util.Objects
 import java.util.stream.Collectors
-import java.util.stream.StreamSupport
-import org.elasticsearch.index.query.QueryBuilders.queryStringQuery
 
 private const val ENTITY_NAME = "studio"
 /**
@@ -28,8 +24,8 @@ private const val ENTITY_NAME = "studio"
 @RequestMapping("/api")
 @Transactional
 class StudioResource(
-        private val studioRepository: StudioRepository,
-        private val studioSearchRepository: StudioSearchRepository,
+    private val studioRepository: StudioRepository,
+    private val studioSearchRepository: StudioSearchRepository,
 ) {
 
     private val log = LoggerFactory.getLogger(javaClass)
@@ -59,7 +55,7 @@ class StudioResource(
         }
         val result = studioRepository.save(studio)
         studioSearchRepository.index(result)
-            return ResponseEntity.created(URI("/api/studios/${result.id}"))
+        return ResponseEntity.created(URI("/api/studios/${result.id}"))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.id.toString()))
             .body(result)
     }
@@ -88,7 +84,6 @@ class StudioResource(
             throw BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid")
         }
 
-
         if (!studioRepository.existsById(id)) {
             throw BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound")
         }
@@ -99,28 +94,28 @@ class StudioResource(
             .headers(
                 HeaderUtil.createEntityUpdateAlert(
                     applicationName, true, ENTITY_NAME,
-                     studio.id.toString()
+                    studio.id.toString()
                 )
             )
             .body(result)
     }
 
     /**
-    * {@code PATCH  /studios/:id} : Partial updates given fields of an existing studio, field will ignore if it is null
-    *
-    * @param id the id of the studio to save.
-    * @param studio the studio to update.
-    * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated studio,
-    * or with status {@code 400 (Bad Request)} if the studio is not valid,
-    * or with status {@code 404 (Not Found)} if the studio is not found,
-    * or with status {@code 500 (Internal Server Error)} if the studio couldn't be updated.
-    * @throws URISyntaxException if the Location URI syntax is incorrect.
-    */
+     * {@code PATCH  /studios/:id} : Partial updates given fields of an existing studio, field will ignore if it is null
+     *
+     * @param id the id of the studio to save.
+     * @param studio the studio to update.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated studio,
+     * or with status {@code 400 (Bad Request)} if the studio is not valid,
+     * or with status {@code 404 (Not Found)} if the studio is not found,
+     * or with status {@code 500 (Internal Server Error)} if the studio couldn't be updated.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
     @PatchMapping(value = ["/studios/{id}"], consumes = ["application/json", "application/merge-patch+json"])
     @Throws(URISyntaxException::class)
     fun partialUpdateStudio(
         @PathVariable(value = "id", required = false) id: Long,
-        @RequestBody studio:Studio
+        @RequestBody studio: Studio
     ): ResponseEntity<Studio> {
         log.debug("REST request to partial update Studio partially : {}, {}", id, studio)
         if (studio.id == null) {
@@ -134,25 +129,21 @@ class StudioResource(
             throw BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound")
         }
 
-
-
-         val result = studioRepository.findById(studio.id)
+        val result = studioRepository.findById(studio.id)
             .map {
 
-                  if (studio.name!= null) {
-                     it.name = studio.name
-                  }
+                if (studio.name != null) {
+                    it.name = studio.name
+                }
 
-               it
+                it
             }
             .map { studioRepository.save(it) }
             .map {
-                  studioSearchRepository.save(it)
+                studioSearchRepository.save(it)
 
-                  it
-
+                it
             }
-
 
         return ResponseUtil.wrapOrNotFound(
             result,
@@ -166,13 +157,10 @@ class StudioResource(
 
      * @return the [ResponseEntity] with status `200 (OK)` and the list of studios in body.
      */
-    @GetMapping("/studios")    
-    fun getAllStudios(): MutableList<Studio> {
-        
-        
+    @GetMapping("/studios") fun getAllStudios(): MutableList<Studio> {
 
-            log.debug("REST request to get all Studios")
-                        return studioRepository.findAll()
+        log.debug("REST request to get all Studios")
+        return studioRepository.findAll()
     }
 
     /**
@@ -213,8 +201,8 @@ class StudioResource(
     @GetMapping("/_search/studios")
     fun searchStudios(@RequestParam query: String): MutableList<Studio> {
         log.debug("REST request to search Studios for query $query")
-            return studioSearchRepository.search(query)
+        return studioSearchRepository.search(query)
             .collect(Collectors.toList())
             .toMutableList()
-}
+    }
 }

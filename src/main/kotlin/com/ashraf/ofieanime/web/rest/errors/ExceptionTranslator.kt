@@ -81,9 +81,10 @@ class ExceptionTranslator(private val env: Environment) : ProblemHandling, Secur
         request: NativeWebRequest
     ): ResponseEntity<Problem>? {
         val result = ex.bindingResult
-        val fieldErrors = result.fieldErrors.map { FieldErrorVM(
-            it.objectName.replaceFirst(Regex("DTO$"), ""), it.field, if (StringUtils.isNotBlank(it.defaultMessage)) it.defaultMessage else it.code
-        )
+        val fieldErrors = result.fieldErrors.map {
+            FieldErrorVM(
+                it.objectName.replaceFirst(Regex("DTO$"), ""), it.field, if (StringUtils.isNotBlank(it.defaultMessage)) it.defaultMessage else it.code
+            )
         }
 
         val problem = Problem.builder()

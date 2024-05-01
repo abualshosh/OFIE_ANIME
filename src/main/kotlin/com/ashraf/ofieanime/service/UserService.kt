@@ -264,7 +264,7 @@ class UserService(
      * Persistent Token are used for providing automatic authentication, they should be automatically deleted after
      * 30 days.
      *
-     * This is scheduled to get fired everyday, at midnight.
+     * This is scheduled to get fired every day, at midnight.
      */
     @Scheduled(cron = "0 0 0 * * ?")
     fun removeOldPersistentTokens() {

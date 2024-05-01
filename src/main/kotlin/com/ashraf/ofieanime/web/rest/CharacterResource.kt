@@ -4,21 +4,17 @@ import com.ashraf.ofieanime.domain.Character
 import com.ashraf.ofieanime.repository.CharacterRepository
 import com.ashraf.ofieanime.repository.search.CharacterSearchRepository
 import com.ashraf.ofieanime.web.rest.errors.BadRequestAlertException
-
-import tech.jhipster.web.util.HeaderUtil
-import tech.jhipster.web.util.ResponseUtil
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.ResponseEntity
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.*
-
+import tech.jhipster.web.util.HeaderUtil
+import tech.jhipster.web.util.ResponseUtil
 import java.net.URI
 import java.net.URISyntaxException
 import java.util.Objects
 import java.util.stream.Collectors
-import java.util.stream.StreamSupport
-import org.elasticsearch.index.query.QueryBuilders.queryStringQuery
 
 private const val ENTITY_NAME = "character"
 /**
@@ -28,8 +24,8 @@ private const val ENTITY_NAME = "character"
 @RequestMapping("/api")
 @Transactional
 class CharacterResource(
-        private val characterRepository: CharacterRepository,
-        private val characterSearchRepository: CharacterSearchRepository,
+    private val characterRepository: CharacterRepository,
+    private val characterSearchRepository: CharacterSearchRepository,
 ) {
 
     private val log = LoggerFactory.getLogger(javaClass)
@@ -59,7 +55,7 @@ class CharacterResource(
         }
         val result = characterRepository.save(character)
         characterSearchRepository.index(result)
-            return ResponseEntity.created(URI("/api/characters/${result.id}"))
+        return ResponseEntity.created(URI("/api/characters/${result.id}"))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.id.toString()))
             .body(result)
     }
@@ -88,7 +84,6 @@ class CharacterResource(
             throw BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid")
         }
 
-
         if (!characterRepository.existsById(id)) {
             throw BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound")
         }
@@ -99,28 +94,28 @@ class CharacterResource(
             .headers(
                 HeaderUtil.createEntityUpdateAlert(
                     applicationName, true, ENTITY_NAME,
-                     character.id.toString()
+                    character.id.toString()
                 )
             )
             .body(result)
     }
 
     /**
-    * {@code PATCH  /characters/:id} : Partial updates given fields of an existing character, field will ignore if it is null
-    *
-    * @param id the id of the character to save.
-    * @param character the character to update.
-    * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated character,
-    * or with status {@code 400 (Bad Request)} if the character is not valid,
-    * or with status {@code 404 (Not Found)} if the character is not found,
-    * or with status {@code 500 (Internal Server Error)} if the character couldn't be updated.
-    * @throws URISyntaxException if the Location URI syntax is incorrect.
-    */
+     * {@code PATCH  /characters/:id} : Partial updates given fields of an existing character, field will ignore if it is null
+     *
+     * @param id the id of the character to save.
+     * @param character the character to update.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated character,
+     * or with status {@code 400 (Bad Request)} if the character is not valid,
+     * or with status {@code 404 (Not Found)} if the character is not found,
+     * or with status {@code 500 (Internal Server Error)} if the character couldn't be updated.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
     @PatchMapping(value = ["/characters/{id}"], consumes = ["application/json", "application/merge-patch+json"])
     @Throws(URISyntaxException::class)
     fun partialUpdateCharacter(
         @PathVariable(value = "id", required = false) id: Long,
-        @RequestBody character:Character
+        @RequestBody character: Character
     ): ResponseEntity<Character> {
         log.debug("REST request to partial update Character partially : {}, {}", id, character)
         if (character.id == null) {
@@ -134,28 +129,24 @@ class CharacterResource(
             throw BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound")
         }
 
-
-
-         val result = characterRepository.findById(character.id)
+        val result = characterRepository.findById(character.id)
             .map {
 
-                  if (character.name!= null) {
-                     it.name = character.name
-                  }
-                  if (character.picture!= null) {
-                     it.picture = character.picture
-                  }
+                if (character.name != null) {
+                    it.name = character.name
+                }
+                if (character.picture != null) {
+                    it.picture = character.picture
+                }
 
-               it
+                it
             }
             .map { characterRepository.save(it) }
             .map {
-                  characterSearchRepository.save(it)
+                characterSearchRepository.save(it)
 
-                  it
-
+                it
             }
-
 
         return ResponseUtil.wrapOrNotFound(
             result,
@@ -169,13 +160,10 @@ class CharacterResource(
 
      * @return the [ResponseEntity] with status `200 (OK)` and the list of characters in body.
      */
-    @GetMapping("/characters")    
-    fun getAllCharacters(): MutableList<Character> {
-        
-        
+    @GetMapping("/characters") fun getAllCharacters(): MutableList<Character> {
 
-            log.debug("REST request to get all Characters")
-                        return characterRepository.findAll()
+        log.debug("REST request to get all Characters")
+        return characterRepository.findAll()
     }
 
     /**
@@ -216,8 +204,8 @@ class CharacterResource(
     @GetMapping("/_search/characters")
     fun searchCharacters(@RequestParam query: String): MutableList<Character> {
         log.debug("REST request to search Characters for query $query")
-            return characterSearchRepository.search(query)
+        return characterSearchRepository.search(query)
             .collect(Collectors.toList())
             .toMutableList()
-}
+    }
 }

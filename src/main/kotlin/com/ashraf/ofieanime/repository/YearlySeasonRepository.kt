@@ -2,7 +2,6 @@ package com.ashraf.ofieanime.repository
 
 import com.ashraf.ofieanime.domain.YearlySeason
 import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
 
 /**
@@ -10,5 +9,4 @@ import org.springframework.stereotype.Repository
  */
 @Suppress("unused")
 @Repository
-interface YearlySeasonRepository : JpaRepository<YearlySeason, Long> {
-}
+interface YearlySeasonRepository : JpaRepository<YearlySeason, Long>

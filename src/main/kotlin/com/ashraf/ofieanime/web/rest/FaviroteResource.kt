@@ -4,21 +4,17 @@ import com.ashraf.ofieanime.domain.Favirote
 import com.ashraf.ofieanime.repository.FaviroteRepository
 import com.ashraf.ofieanime.repository.search.FaviroteSearchRepository
 import com.ashraf.ofieanime.web.rest.errors.BadRequestAlertException
-
-import tech.jhipster.web.util.HeaderUtil
-import tech.jhipster.web.util.ResponseUtil
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.ResponseEntity
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.*
-
+import tech.jhipster.web.util.HeaderUtil
+import tech.jhipster.web.util.ResponseUtil
 import java.net.URI
 import java.net.URISyntaxException
 import java.util.Objects
 import java.util.stream.Collectors
-import java.util.stream.StreamSupport
-import org.elasticsearch.index.query.QueryBuilders.queryStringQuery
 
 private const val ENTITY_NAME = "favirote"
 /**
@@ -28,8 +24,8 @@ private const val ENTITY_NAME = "favirote"
 @RequestMapping("/api")
 @Transactional
 class FaviroteResource(
-        private val faviroteRepository: FaviroteRepository,
-        private val faviroteSearchRepository: FaviroteSearchRepository,
+    private val faviroteRepository: FaviroteRepository,
+    private val faviroteSearchRepository: FaviroteSearchRepository,
 ) {
 
     private val log = LoggerFactory.getLogger(javaClass)
@@ -59,7 +55,7 @@ class FaviroteResource(
         }
         val result = faviroteRepository.save(favirote)
         faviroteSearchRepository.index(result)
-            return ResponseEntity.created(URI("/api/favirotes/${result.id}"))
+        return ResponseEntity.created(URI("/api/favirotes/${result.id}"))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.id.toString()))
             .body(result)
     }
@@ -88,7 +84,6 @@ class FaviroteResource(
             throw BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid")
         }
 
-
         if (!faviroteRepository.existsById(id)) {
             throw BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound")
         }
@@ -99,28 +94,28 @@ class FaviroteResource(
             .headers(
                 HeaderUtil.createEntityUpdateAlert(
                     applicationName, true, ENTITY_NAME,
-                     favirote.id.toString()
+                    favirote.id.toString()
                 )
             )
             .body(result)
     }
 
     /**
-    * {@code PATCH  /favirotes/:id} : Partial updates given fields of an existing favirote, field will ignore if it is null
-    *
-    * @param id the id of the favirote to save.
-    * @param favirote the favirote to update.
-    * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated favirote,
-    * or with status {@code 400 (Bad Request)} if the favirote is not valid,
-    * or with status {@code 404 (Not Found)} if the favirote is not found,
-    * or with status {@code 500 (Internal Server Error)} if the favirote couldn't be updated.
-    * @throws URISyntaxException if the Location URI syntax is incorrect.
-    */
+     * {@code PATCH  /favirotes/:id} : Partial updates given fields of an existing favirote, field will ignore if it is null
+     *
+     * @param id the id of the favirote to save.
+     * @param favirote the favirote to update.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated favirote,
+     * or with status {@code 400 (Bad Request)} if the favirote is not valid,
+     * or with status {@code 404 (Not Found)} if the favirote is not found,
+     * or with status {@code 500 (Internal Server Error)} if the favirote couldn't be updated.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
     @PatchMapping(value = ["/favirotes/{id}"], consumes = ["application/json", "application/merge-patch+json"])
     @Throws(URISyntaxException::class)
     fun partialUpdateFavirote(
         @PathVariable(value = "id", required = false) id: Long,
-        @RequestBody favirote:Favirote
+        @RequestBody favirote: Favirote
     ): ResponseEntity<Favirote> {
         log.debug("REST request to partial update Favirote partially : {}, {}", id, favirote)
         if (favirote.id == null) {
@@ -134,25 +129,21 @@ class FaviroteResource(
             throw BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound")
         }
 
-
-
-         val result = faviroteRepository.findById(favirote.id)
+        val result = faviroteRepository.findById(favirote.id)
             .map {
 
-                  if (favirote.addDate!= null) {
-                     it.addDate = favirote.addDate
-                  }
+                if (favirote.addDate != null) {
+                    it.addDate = favirote.addDate
+                }
 
-               it
+                it
             }
             .map { faviroteRepository.save(it) }
             .map {
-                  faviroteSearchRepository.save(it)
+                faviroteSearchRepository.save(it)
 
-                  it
-
+                it
             }
-
 
         return ResponseUtil.wrapOrNotFound(
             result,
@@ -167,23 +158,17 @@ class FaviroteResource(
      * @param filter the filter of the request.
      * @return the [ResponseEntity] with status `200 (OK)` and the list of favirotes in body.
      */
-    @GetMapping("/favirotes")    
-    fun getAllFavirotes(@RequestParam(required = false) filter: String?): MutableList<Favirote> {
-        
-        
+    @GetMapping("/favirotes") fun getAllFavirotes(@RequestParam(required = false) filter: String?): MutableList<Favirote> {
+
         if ("profile-is-null".equals(filter)) {
             log.debug("REST request to get all Favirotes where profile is null")
             return faviroteRepository.findAll()
                 .asSequence()
                 .filter { it.profile == null }
                 .toMutableList()
-        } 
-
-
-
-        else { 
+        } else {
             log.debug("REST request to get all Favirotes")
-                        return faviroteRepository.findAll()
+            return faviroteRepository.findAll()
         }
     }
 
@@ -225,8 +210,8 @@ class FaviroteResource(
     @GetMapping("/_search/favirotes")
     fun searchFavirotes(@RequestParam query: String): MutableList<Favirote> {
         log.debug("REST request to search Favirotes for query $query")
-            return faviroteSearchRepository.search(query)
+        return faviroteSearchRepository.search(query)
             .collect(Collectors.toList())
             .toMutableList()
-}
+    }
 }

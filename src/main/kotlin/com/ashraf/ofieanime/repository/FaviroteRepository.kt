@@ -2,7 +2,6 @@ package com.ashraf.ofieanime.repository
 
 import com.ashraf.ofieanime.domain.Favirote
 import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
 
 /**
@@ -10,5 +9,4 @@ import org.springframework.stereotype.Repository
  */
 @Suppress("unused")
 @Repository
-interface FaviroteRepository : JpaRepository<Favirote, Long> {
-}
+interface FaviroteRepository : JpaRepository<Favirote, Long>
